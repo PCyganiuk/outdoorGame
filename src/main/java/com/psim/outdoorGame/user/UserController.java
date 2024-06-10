@@ -1,7 +1,6 @@
-package com.psim.outdoorGame;
+package com.psim.outdoorGame.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,12 +15,12 @@ public class UserController {
     private UserService userService;
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers(){
-        return new ResponseEntity<List<User>>(userService.allUsers(),HttpStatus.OK);
+        return new ResponseEntity<>(userService.allUsers(),HttpStatus.OK);
     }
 
     @GetMapping("/{username}")
     public ResponseEntity<Optional<User>> getSingleUser(@PathVariable String username){
-        return new ResponseEntity<Optional<User>>(userService.singleUser(username),HttpStatus.OK);
+        return new ResponseEntity<>(userService.singleUser(username),HttpStatus.OK);
     }
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody User user){

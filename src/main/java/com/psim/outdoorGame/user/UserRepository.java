@@ -1,4 +1,4 @@
-package com.psim.outdoorGame;
+package com.psim.outdoorGame.user;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
