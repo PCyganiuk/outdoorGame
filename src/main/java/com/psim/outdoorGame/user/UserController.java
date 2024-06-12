@@ -25,9 +25,7 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody User user){
         Optional<User> isUser = userService.byUsernameAndPassword(user.getUsername(),user.getPassword());
-        if (isUser.isPresent()){
-            return ResponseEntity.ok("login successful");
-        }
+        if (isUser.isPresent()){return ResponseEntity.ok("login successful");}
         else{
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid login or password");
         }

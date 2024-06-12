@@ -10,19 +10,19 @@ import java.util.Optional;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
-    public List<User> allUsers(){
+    public List<User> allUsers() {
         return userRepository.findAll();
     }
 
-    public Optional<User> singleUser(String username){
+    public Optional<User> singleUser(String username) {
         return userRepository.findByUsername(username);
     }
 
-   public Optional<User> byUsernameAndPassword(String username, String password){
-        return userRepository.findByUsernameAndPassword(username,password);
+   public Optional<User> byUsernameAndPassword(String username, String password) {
+       return userRepository.findByUsernameAndPassword(username, password);
    }
 
-   public void saveUser(User user){
+   public void saveUser(User user) {
         userRepository.save(user);
    }
 }
