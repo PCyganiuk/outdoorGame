@@ -22,4 +22,10 @@ public class RouteController {
     public ResponseEntity<List<Route>> getSingleRoute(@PathVariable ObjectId routeId){
         return new ResponseEntity<>(routeService.findSingleRoute(routeId),HttpStatus.OK);
     }
+
+    @PostMapping
+    public ResponseEntity<String> postRoute(@RequestBody Route route){
+        routeService.saveRoute(route);
+        return ResponseEntity.ok("route added successfully");
+    }
 }

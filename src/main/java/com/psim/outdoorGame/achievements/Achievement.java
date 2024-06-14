@@ -17,7 +17,7 @@ import java.util.Date;
 public class Achievement {
     @Id
     private ObjectId achievementId;
-    private Integer time;
+    private Integer time; // given in seconds
     private ObjectId userId;
     private Date date;
     private ObjectId poiId;

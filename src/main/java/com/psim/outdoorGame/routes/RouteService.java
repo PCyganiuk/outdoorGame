@@ -18,4 +18,8 @@ public class RouteService {
     public List<Route> findSingleRoute(ObjectId routeId){
         return routeRepository.findRoutesByRouteId(routeId);
     }
+
+    public void saveRoute(Route route){
+        routeRepository.save(route);
+    }
 }

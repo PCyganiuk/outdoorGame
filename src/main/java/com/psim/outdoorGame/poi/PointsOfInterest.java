@@ -15,7 +15,7 @@ public class PointsOfInterest {
     @Id
     private ObjectId id;
     private String name;
-    private Integer qr_id;
+    private Integer qrId;
     private String localization;
     private String hint;
 }
