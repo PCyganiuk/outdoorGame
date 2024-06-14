@@ -1,8 +1,16 @@
+# Stage 1: Build the application
 FROM gradle:jdk17 AS build
+WORKDIR /home/gradle/project
 COPY . .
-RUN gradle bootJar
 
-FROM openjdk:17.0.1-jdk-slim
-COPY --from=build /build/libs/outdoorGame-0.0.1-SNAPSHOT.jar outdoorGame.jar
+# Run the build to create the JAR file
+RUN ./gradlew clean bootJar
+
+# Verify the JAR file is created
+RUN ls /home/gradle/project/build/libs
+
+# Stage 2: Package the application
+FROM openjdk:17-jdk-slim
+COPY --from=build /home/gradle/project/build/libs/*.jar outdoorGame.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "outdoorGame.jar"]
