@@ -4,6 +4,7 @@ WORKDIR /home/gradle/project
 COPY . .
 
 # Run the build to create the JAR file
+RUN chmod +x gradlew
 RUN ./gradlew clean bootJar
 
 # Verify the JAR file is created
