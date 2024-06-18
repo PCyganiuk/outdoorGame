@@ -23,11 +23,13 @@ public class UserController {
         return new ResponseEntity<>(userService.singleUser(username),HttpStatus.OK);
     }
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody User user){
+    public ResponseEntity<LoginResponse> login(@RequestBody User user){
         Optional<User> isUser = userService.byUsernameAndPassword(user.getUsername(),user.getPassword());
-        if (isUser.isPresent()){return ResponseEntity.ok("login successful");}
+        if (isUser.isPresent()){
+            System.out.println("login success");
+            return ResponseEntity.ok(new LoginResponse("login successfull"));}
         else{
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid login or password");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new LoginResponse("Invalid login or password"));
         }
     }
 
