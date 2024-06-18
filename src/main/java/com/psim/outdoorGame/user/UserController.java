@@ -23,25 +23,25 @@ public class UserController {
         return new ResponseEntity<>(userService.singleUser(username),HttpStatus.OK);
     }
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> login(@RequestBody User user){
+    public ResponseEntity<PostResponse> login(@RequestBody User user){
         Optional<User> isUser = userService.byUsernameAndPassword(user.getUsername(),user.getPassword());
         if (isUser.isPresent()){
             System.out.println("login success");
-            return ResponseEntity.ok(new LoginResponse("login successfull"));}
+            return ResponseEntity.ok(new PostResponse("login successfull"));}
         else{
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new LoginResponse("Invalid login or password"));
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new PostResponse("Invalid login or password"));
         }
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody User user){
+    public ResponseEntity<PostResponse> register(@RequestBody User user){
         Optional<User> isUser = userService.singleUser(user.getUsername());
         if (isUser.isPresent()){
-            return ResponseEntity.badRequest().body("Username is already taken");
+            return ResponseEntity.badRequest().body(new PostResponse("is present"));
         }
         else{
             userService.saveUser(user);
-            return ResponseEntity.ok("User registered successfully");
+            return ResponseEntity.ok(new PostResponse("register successfull"));
         }
     }
 }

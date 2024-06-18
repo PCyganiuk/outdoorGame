@@ -1,5 +1,6 @@
 package com.psim.outdoorGame.achievements;
 
+import com.psim.outdoorGame.user.PostResponse;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,8 +19,8 @@ public class AchievementController {
         return new ResponseEntity<>(achievementService.byUserId(userId), HttpStatus.OK);
     }
     @PostMapping
-    public ResponseEntity<String> postAchievement(@RequestBody Achievement achievement){
+    public ResponseEntity<PostResponse> postAchievement(@RequestBody Achievement achievement){
         achievementService.saveAchievement(achievement);
-        return ResponseEntity.ok("achievement added successfully");
+        return ResponseEntity.ok(new PostResponse("added successfully"));
     }
 }

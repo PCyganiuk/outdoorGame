@@ -1,5 +1,6 @@
 package com.psim.outdoorGame.routes;
 
+import com.psim.outdoorGame.user.PostResponse;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,8 +25,8 @@ public class RouteController {
     }
 
     @PostMapping
-    public ResponseEntity<String> postRoute(@RequestBody Route route){
+    public ResponseEntity<PostResponse> postRoute(@RequestBody Route route){
         routeService.saveRoute(route);
-        return ResponseEntity.ok("route added successfully");
+        return ResponseEntity.ok(new PostResponse("added successfully"));
     }
 }

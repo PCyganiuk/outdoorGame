@@ -1,9 +1,9 @@
 package com.psim.outdoorGame.user;
 
-public class LoginResponse {
+public class PostResponse {
     private String message;
 
-    public LoginResponse(String message) {
+    public PostResponse(String message) {
         this.message = message;
     }
 
