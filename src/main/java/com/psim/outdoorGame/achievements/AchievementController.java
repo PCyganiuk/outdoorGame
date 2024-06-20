@@ -19,7 +19,7 @@ public class AchievementController {
         return new ResponseEntity<>(achievementService.getAll(), HttpStatus.OK);
     }
     @GetMapping("/{userId}")
-    public ResponseEntity<List<Achievement>> getAchievementsByUserId(@PathVariable ObjectId userId){
+    public ResponseEntity<List<Achievement>> getAchievementsByUserId(@PathVariable Integer userId){
         return new ResponseEntity<>(achievementService.byUserId(userId), HttpStatus.OK);
     }
     @PostMapping

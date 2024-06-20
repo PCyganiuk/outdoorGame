@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface AchievementRepository extends MongoRepository<Achievement, ObjectId> {
-    List<Achievement> findAchievementsByUserId(ObjectId userId);
+    List<Achievement> findAchievementsByUserId(Integer userId);
 }

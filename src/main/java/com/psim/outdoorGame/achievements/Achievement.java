@@ -18,7 +18,7 @@ public class Achievement {
     @Id
     private ObjectId achievementId;
     private Integer time; // given in seconds
-    private ObjectId userId;
+    private Integer userId;
     private Date date;
-    private ObjectId poiId;
+    private Integer poiId;
 }

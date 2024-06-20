@@ -23,8 +23,8 @@ public class PointsOfInterestController {
         return new ResponseEntity<>(pointsOfInterestService.allPoIs(), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Optional<PointsOfInterest>> getById(@PathVariable ObjectId id){
-        return new ResponseEntity<>(pointsOfInterestService.singlePoI(id),HttpStatus.OK);
+    @GetMapping("/{poiId}")
+    public ResponseEntity<Optional<PointsOfInterest>> getById(@PathVariable Integer poiId){
+        return new ResponseEntity<>(pointsOfInterestService.singlePoI(poiId),HttpStatus.OK);
     }
 }

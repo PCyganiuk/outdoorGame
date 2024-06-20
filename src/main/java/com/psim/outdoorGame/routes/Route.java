@@ -17,5 +17,5 @@ public class Route {
     @Id
     private ObjectId routeId;
     private String routeName;
-    private List<ObjectId> poiId;
+    private List<Integer> poiId;
 }

@@ -11,7 +11,7 @@ public class AchievementService {
     @Autowired
     private AchievementRepository achievementRepository;
 
-    public List<Achievement> byUserId(ObjectId userId){
+    public List<Achievement> byUserId(Integer userId){
         return achievementRepository.findAchievementsByUserId(userId);
     }
 

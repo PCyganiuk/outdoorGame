@@ -15,8 +15,8 @@ public class PointsOfInterestService {
         return pointsOfInterestRepository.findAll();
     }
 
-    public Optional<PointsOfInterest> singlePoI(ObjectId id){
-        return pointsOfInterestRepository.findById(id);
+    public Optional<PointsOfInterest> singlePoI(Integer poiId){
+        return pointsOfInterestRepository.findPointsOfInterestByPoiId(poiId);
     }
 
 

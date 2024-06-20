@@ -18,4 +18,5 @@ public class PointsOfInterest {
     private Integer qrId;
     private String localization;
     private String hint;
+    private Integer poiId;
 }
