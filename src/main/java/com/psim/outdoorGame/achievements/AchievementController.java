@@ -14,6 +14,10 @@ import java.util.List;
 public class AchievementController {
     @Autowired
     private AchievementService achievementService;
+    @GetMapping
+    public ResponseEntity<List<Achievement>> getAchievements(){
+        return new ResponseEntity<>(achievementService.getAll(), HttpStatus.OK);
+    }
     @GetMapping("/{userId}")
     public ResponseEntity<List<Achievement>> getAchievementsByUserId(@PathVariable ObjectId userId){
         return new ResponseEntity<>(achievementService.byUserId(userId), HttpStatus.OK);
