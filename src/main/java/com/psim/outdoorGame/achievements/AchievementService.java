@@ -15,6 +15,10 @@ public class AchievementService {
         return achievementRepository.findAchievementsByUserId(userId);
     }
 
+    public List<Achievement> getAll(){
+        return achievementRepository.findAll();
+    }
+
     public void saveAchievement(Achievement achievement){
         achievementRepository.save(achievement);
     }
